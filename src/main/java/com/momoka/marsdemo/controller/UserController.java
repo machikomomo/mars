@@ -17,7 +17,7 @@ public class UserController {
         user.setPasswd("123456");
 
         ModelAndView modelMap = new ModelAndView();
-        modelMap.addObject("name", user);
+        modelMap.addObject("user", user);
         modelMap.setViewName("user");
         return modelMap;
     }
