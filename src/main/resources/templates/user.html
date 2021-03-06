@@ -1,0 +1,36 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Mars</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!--    css      -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+    <!--    js       -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="alert alert-primary" role="alert" style="text-align: center">
+用户管理页
+</div>
+
+<div class="container">
+    <div class="row" style="margin-bottom: 2em">
+        <div class="col-sm">
+            <p th:text="${user.name}" ></p>
+        </div>
+        <div class="col-sm">
+            <p th:text="${user.passwd}" ></p>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+</html>
