@@ -1,8 +1,7 @@
 package com.momoka.marsdemo.dao;
 
 import java.io.Serializable;
-
-import lombok.*;
+import lombok.Data;
 
 /**
  * user
@@ -17,5 +16,4 @@ public class User implements Serializable {
     private String passwd;
 
     private static final long serialVersionUID = 1L;
-
 }
