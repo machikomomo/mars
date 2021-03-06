@@ -9,25 +9,63 @@
     <!--    css      -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
 
+
     <!--    js       -->
-    <script></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        $("button[name='deleteUserBtn']").click(function () {
+
+            if(confirm('确定要删除吗？')){
+                var del = false;
+                $.post("rest/user/delete",{id:this.id},
+                function (data){
+                    if(data===true) {
+                        alert("delete success");
+                        del = true;
+                    }else{
+                        alert("delete failed");
+                    }
+                })
+                if(del){
+                    $(this).parents('tr').remove();
+                }
+            }
+        })
+    });
+    </script>
 </head>
 
 <body>
 
 <div class="alert alert-primary" role="alert" style="text-align: center">
-用户管理页
+    用户管理页
 </div>
 
 <div class="container">
-    <div class="row" style="margin-bottom: 2em">
-        <div class="col-sm">
-            <p th:text="${user.name}" ></p>
-        </div>
-        <div class="col-sm">
-            <p th:text="${user.passwd}" ></p>
-        </div>
-    </div>
+
+    <table class="table table-dark table-striped">
+        <thead>
+        <!--        表头-->
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+            <th scope="col">operation</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user:${userList}">
+            <th scope="row" th:text="${user.id}"></th>
+            <td th:text="${user.name}"></td>
+            <td>
+                <button type="button" class="btn btn-warning" name="deleteUserBtn" th:id="${user.id}">Warning</button>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+
 </div>
 
 
