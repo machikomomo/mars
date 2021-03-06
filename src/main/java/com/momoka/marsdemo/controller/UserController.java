@@ -1,21 +1,23 @@
 package com.momoka.marsdemo.controller;
 
+import com.momoka.marsdemo.dao.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import com.momoka.marsdemo.dao.User;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/user")
 public class UserController {
 
     @RequestMapping("")
     public ModelAndView home(@RequestParam String name, Integer num) {
         User user = new User();
+        user.setName("akira");
+        user.setPasswd("123456");
 
         ModelAndView modelMap = new ModelAndView();
-        modelMap.addObject("name", );
+        modelMap.addObject("name", user);
         modelMap.setViewName("user");
         return modelMap;
     }
